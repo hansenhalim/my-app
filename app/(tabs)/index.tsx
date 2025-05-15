@@ -6,21 +6,26 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 
-// import axios from "axios";
+import axios from 'axios';
 
 export default function HomeScreen() {
   function onPressFetch() {
-    fetch('https://jsonplaceholder.typicode.com/todos/1')
-      .then(response => response.json())
-      .then(json => console.log(json))
+    // fetch('http://todos')
+    //   .then(response => response.json())
+    //   .then(json => console.log(json))
 
-    // axios.get('https://jsonplaceholder.typicode.com/todos/1')
-    //   .then(response => {
-    //     console.log(response.data);
-    //   })
-    //   .catch(error => {
-    //     console.error('Error fetching data:', error);
-    //   })
+    axios.get('http://todos', {
+      headers: {
+        "Accept": 'application/json',
+        "Content-Type": 'application/json'
+      }
+    })
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      })
   }
 
   return (

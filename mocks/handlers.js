@@ -9,4 +9,13 @@ export const handlers = [
       completed: false,
     });
   }),
+
+  http.get("http://todos", () => {
+    return HttpResponse.json({
+      userId: 1,
+      id: 1,
+      title: "lorem ipsum todos",
+      completed: false,
+    });
+  }),
 ];
